@@ -22,10 +22,12 @@ http.listen(port, () => {
 });
 
 // Configuración de conexión a MongoDB
-mongoose.connect(`mongodb+srv://${process.env.nameDB}:${process.env.passDB}@cluster0.8inyyov.mongodb.net/?retryWrites=true&w=majority`, {
+mongoose.connect(`mongodb+srv://${process.env.nameDB}:${process.env.passDB}@cluster0.8inyyov.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+
+
 const db = mongoose.connection;
 db.once('open', () => {
     console.log('Conexión a MongoDB establecida');
